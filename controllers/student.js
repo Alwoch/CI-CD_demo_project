@@ -1,12 +1,11 @@
 const Student = require("../model/Student");
-const router = require("../routes/student");
 const logger = require("../Logger/logger");
 
 //register student
 const registerStudent = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-    const student = await Student.create(...req.body);
+    const student = await Student.create({ ...req.body });
     res.status(200).redirect("/login");
     logger.info("student successfully registered");
   } catch (error) {
@@ -32,7 +31,7 @@ const loginStudent = async (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(403).send("<h4>invalid login credentials</h4>");
     }
-    res.redirect("/register-success");
+    res.redirect("/login-success");
     logger.info("student successfully logged in");
   } catch (error) {
     logger.error(error);
