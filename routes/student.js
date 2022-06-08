@@ -13,7 +13,7 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  res.send("<h2>welcome to your student portal</h2>");
+  res.send("<h2>welcome to your student portals.....</h2>");
 });
 
 //register-success view
