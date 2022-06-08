@@ -12,6 +12,10 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
+router.get("/", (req, res) => {
+  res.send("<h2>welcome to your student portal</h2>");
+});
+
 //register-success view
 router.get("/register-success", (req, res) => {
   res.render("register-success");
